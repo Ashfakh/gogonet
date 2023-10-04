@@ -1,23 +1,6 @@
 package main
 
-import (
-	server "github.com/Ashfakh/gogonet"
-)
-
-//	func main() {
-//		ln, _ := net.Listen("tcp", "0.0.0.0:8080")
-//		for {
-//			c, _ := ln.Accept()
-//			buf := make([]byte, 1024)
-//			for {
-//				n, _ := c.Read(buf)
-//				if n == 0 {
-//					break
-//				}
-//				c.Write(buf[:n])
-//			}
-//		}
-//	}
+import server "github.com/Ashfakh/gogonet"
 
 func request(req server.Request) server.Response {
 	if req.Params()["name"] != "" {
@@ -27,8 +10,7 @@ func request(req server.Request) server.Response {
 }
 
 func main() {
-
-	var serv = server.Server("0.0.0.0", 8080, 1, 10)
+	var serv = server.Server("0.0.0.0", 8080, 1, 10) // host, port, numHandlers, maxQueued
 	serv.Route(server.GET, "/", request)
 	serv.Route(server.GET, "/hello/:name", request)
 	serv.Route(server.GET, "/hello", request)
