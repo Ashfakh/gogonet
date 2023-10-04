@@ -61,6 +61,3 @@ func request(req server.Request) server.Response {
 
 ## 👤 Author
 [Ashfakh](https://github.com/Ashfakh) ✨
-
-## 🎉 Acknowledgements
-Big thanks to the Go community 🎈 for their continuous support and resources. Your passion keeps the Go world spinning! 🌍
